@@ -1,0 +1,22 @@
+# =============================================================================
+# Habot Connect FZCO - Hiring Project
+# Position: Junior Cloud and Development Operations Engineer
+# Candidate Full Name: Anuradha
+# Candidate Electronic Mail Address: anuradha@tecofize.com
+# File Purpose: Pinned development dependencies for the build gate.
+# =============================================================================
+#
+# Poka-Yoke rationale for this file:
+# Every dependency is pinned to an exact version. A range would let the build
+# gate change behaviour between two runs of the same commit, which would make a
+# green result meaningless. Upgrading a tool is a deliberate commit that a
+# reviewer can see.
+
+Django==5.1.4
+djangorestframework==3.15.2
+
+black==24.10.0
+flake8==7.1.1
+isort==5.13.2
+bandit==1.8.0
+pytest==8.3.4
