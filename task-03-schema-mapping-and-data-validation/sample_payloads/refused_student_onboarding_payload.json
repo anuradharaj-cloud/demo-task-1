@@ -1,0 +1,22 @@
+{
+  "submission_reference": "HCSO-20260901-ZZZZZZZZ",
+  "submission_received_timestamp": "2026-09-08 09:14:32",
+  "student_given_name": "",
+  "student_family_name": "Okonkwo",
+  "student_date_of_birth": "1998-03-11",
+  "student_year_group": 19,
+  "parent_or_guardian_full_name": "Chidinma Okonkwo",
+  "parent_or_guardian_email_address": "chidinma.okonkwo.at.example.org",
+  "parent_or_guardian_telephone_number": "07700900412",
+  "home_postal_code": "m145rt",
+  "assigned_local_authority_name": "Some Other Council",
+  "school_unique_reference_number": "10543",
+  "learning_support_category": "SpLD",
+  "weekly_support_hours_requested": 60,
+  "preferred_session_language": "Klingon",
+  "education_health_care_plan_is_present": false,
+  "education_health_care_plan_reference": "EHCP-2025-0417",
+  "data_processing_consent_is_given": false,
+  "record_is_withheld_from_analytics": false,
+  "internal_reviewer_note": "Parent seems keen, probably fine to wave through."
+}
