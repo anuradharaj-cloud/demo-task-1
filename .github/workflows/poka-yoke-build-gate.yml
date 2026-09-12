@@ -51,6 +51,7 @@ on:
   push:
     branches:
       - main
+      - version-1
 
 # The default token is read only. A step that needs to write must ask for the
 # permission it needs, in the job that needs it, and nowhere else.

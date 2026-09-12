@@ -125,8 +125,8 @@ anything else.
 | Reporting view dataset | `d1_reporting_views_staging` |
 | Encryption key | `learning-support-data-encryption-key`, rotating every 90 days |
 | Ingestion identity | `onboarding-ingestion-writer` |
-| Transformation identity | `onboarding-transformation-runner` |
-| Reporting identity | `learning-support-analytics-reader` |
+| Transformation identity | `onboarding-transform-runner` |
+| Reporting identity | `support-analytics-reader` |
 
 The region is London because the platform serves learning support assistants working with
 children resident in the United Kingdom, and the personal data of those children is kept in the

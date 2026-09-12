@@ -23,7 +23,7 @@ resource "google_service_account" "onboarding_ingestion_writer" {
 }
 
 resource "google_service_account" "onboarding_transformation_runner" {
-  account_id   = "onboarding-transformation-runner"
+  account_id   = "onboarding-transform-runner"
   project      = var.google_cloud_project_identifier
   display_name = "Onboarding Transformation Runner"
   description  = "Used by the transformation stage to read from the D0 Raw Landing bucket, apply the deconstructed yes or no validation library, and append accepted rows to the D1 enforced table. This identity cannot delete data and cannot modify the table schema."
@@ -32,7 +32,7 @@ resource "google_service_account" "onboarding_transformation_runner" {
 }
 
 resource "google_service_account" "learning_support_analytics_reader" {
-  account_id   = "learning-support-analytics-reader"
+  account_id   = "support-analytics-reader"
   project      = var.google_cloud_project_identifier
   display_name = "Learning Support Analytics Reader"
   description  = "Used by the reporting layer to query the D1 enforced dataset through the authorised view only. This identity has no access to the underlying table and no access to the D0 Raw Landing bucket."
