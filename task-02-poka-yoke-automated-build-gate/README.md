@@ -1,7 +1,7 @@
 # Task Two — The Poka-Yoke Automated Build Gate
 
 **Candidate full name:** Anuradha
-**Candidate electronic mail address:** anuradha@tecofize.com
+**Candidate electronic mail address:** anuu.21092004@gmail.com
 
 ---
 

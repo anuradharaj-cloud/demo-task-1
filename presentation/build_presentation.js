@@ -2,7 +2,7 @@
 // Habot Connect FZCO - Hiring Project
 // Position: Junior Cloud and Development Operations Engineer
 // Candidate Full Name: Anuradha
-// Candidate Electronic Mail Address: anuradha@tecofize.com
+// Candidate Electronic Mail Address: anuu.21092004@gmail.com
 // File Purpose: Generate the submission slide deck. Maximum of fifteen slides.
 // =============================================================================
 
@@ -200,7 +200,7 @@ function tableOf(slide, headings, rows, options) {
     [
       { text: "Anuradha\n", options: { bold: true, fontSize: 17, color: WHITE } },
       {
-        text: "anuradha@tecofize.com\n\n",
+        text: "anuu.21092004@gmail.com\n\n",
         options: { fontSize: 12, color: ICE },
       },
       {
@@ -1527,7 +1527,7 @@ function tableOf(slide, headings, rows, options) {
     margin: 0,
   });
   slide.addText(
-    "Anuradha\nanuradha@tecofize.com\nJunior Cloud and Development Operations Engineer",
+    "Anuradha\nanuu.21092004@gmail.com\nJunior Cloud and Development Operations Engineer",
     {
       x: M + 0.35,
       y: 5.4,

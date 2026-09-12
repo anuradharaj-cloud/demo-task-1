@@ -2,7 +2,7 @@
 
 **Position:** Junior Cloud and Development Operations Engineer (Google Cloud Platform, Django, React)
 **Candidate full name:** Anuradha
-**Candidate electronic mail address:** anuradha@tecofize.com
+**Candidate electronic mail address:** anuu.21092004@gmail.com
 **Submitted:** September 2026
 
 ---

@@ -2,7 +2,7 @@
 
 Position: Junior Cloud and Development Operations Engineer.
 Candidate Full Name: Anuradha.
-Candidate Electronic Mail Address: anuradha@tecofize.com.
+Candidate Electronic Mail Address: anuu.21092004@gmail.com.
 
 File purpose: minimal Django configuration so that the serializer can be tested
 without a running database or a deployed application.

@@ -2,7 +2,7 @@
 
 Position: Junior Cloud and Development Operations Engineer.
 Candidate Full Name: Anuradha.
-Candidate Electronic Mail Address: anuradha@tecofize.com.
+Candidate Electronic Mail Address: anuu.21092004@gmail.com.
 
 File purpose: stamp the candidate name, electronic mail address and telephone
 number into the header of every file in the submission.
@@ -36,7 +36,7 @@ from typing import List
 REPOSITORY_ROOT = Path(__file__).resolve().parent.parent
 
 CURRENT_FULL_NAME = "Anuradha"
-CURRENT_EMAIL_ADDRESS = "anuradha@tecofize.com"
+CURRENT_EMAIL_ADDRESS = "anuu.21092004@gmail.com"
 
 SEARCHED_SUFFIXES = {
     ".py",
