@@ -2,7 +2,7 @@
 # Habot Connect FZCO - Hiring Project
 # Position: Junior Cloud and Development Operations Engineer
 # Candidate Full Name: Anuradha
-# Candidate Electronic Mail Address: anuradha@tecofize.com
+# Candidate Electronic Mail Address: anuu.21092004@gmail.com
 # File Purpose: Input variables with concrete declared values and validation.
 # =============================================================================
 #

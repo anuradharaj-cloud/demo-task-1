@@ -2,7 +2,7 @@
 
 Position: Junior Cloud and Development Operations Engineer.
 Candidate Full Name: Anuradha.
-Candidate Electronic Mail Address: anuradha@tecofize.com.
+Candidate Electronic Mail Address: anuu.21092004@gmail.com.
 
 File purpose: generate the schema mapping workbook from the field contract.
 
@@ -52,7 +52,7 @@ from dcyn_library.field_contract import (  # noqa: E402
 )
 
 CANDIDATE_FULL_NAME = "Anuradha"
-CANDIDATE_EMAIL_ADDRESS = "anuradha@tecofize.com"
+CANDIDATE_EMAIL_ADDRESS = "anuu.21092004@gmail.com"
 
 WORKBOOK_FONT_NAME = "Arial"
 HEADING_FILL = PatternFill("solid", fgColor="1F3864")
