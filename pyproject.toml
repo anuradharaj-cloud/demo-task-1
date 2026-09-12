@@ -1,0 +1,39 @@
+# =============================================================================
+# Habot Connect FZCO - Hiring Project
+# Position: Junior Cloud and Development Operations Engineer
+# Candidate Full Name: Anuradha
+# Candidate Electronic Mail Address: anuradha@tecofize.com
+# File Purpose: Formatter, import sorter and test runner configuration.
+# =============================================================================
+#
+# Poka-Yoke rationale for this file:
+# The formatter has one configuration and it lives here. An engineer cannot
+# format differently on a personal machine than the build gate formats, because
+# both read this file. This is why the formatting gate can be a hard failure
+# rather than a warning: there is no legitimate way to disagree with it.
+
+[tool.black]
+line-length = 88
+target-version = ["py311"]
+extend-exclude = '''
+/(
+    \.venv
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 88
+known_first_party = ["dcyn_library", "student_onboarding"]
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+pythonpath = ["task-03-schema-mapping-and-data-validation"]
+testpaths = ["task-03-schema-mapping-and-data-validation/tests"]
+# Turning every warning into an error stops a deprecation from being ignored
+# for two years and then becoming a breakage during an upgrade.
+filterwarnings = ["error"]
+addopts = "--strict-markers --strict-config"
+
+[tool.bandit]
+exclude_dirs = [".git", ".github"]

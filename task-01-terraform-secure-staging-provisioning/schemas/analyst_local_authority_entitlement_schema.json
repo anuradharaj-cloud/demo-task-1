@@ -1,0 +1,35 @@
+[
+  {
+    "name": "analyst_email_address",
+    "type": "STRING",
+    "mode": "REQUIRED",
+    "maxLength": "254",
+    "description": "Electronic mail address of the learning support analyst. Compared against the session user function inside the row access policy."
+  },
+  {
+    "name": "local_authority_name",
+    "type": "STRING",
+    "mode": "REQUIRED",
+    "maxLength": "80",
+    "description": "Name of a local authority that this analyst is contracted to support."
+  },
+  {
+    "name": "entitlement_is_active",
+    "type": "BOOLEAN",
+    "mode": "REQUIRED",
+    "description": "True while the entitlement is in force. Setting this column to false removes access at the next query without any change to identity and access management."
+  },
+  {
+    "name": "entitlement_reviewed_date",
+    "type": "DATE",
+    "mode": "REQUIRED",
+    "description": "Date on which this entitlement was last reviewed by the data platform engineering group."
+  },
+  {
+    "name": "entitlement_review_reference",
+    "type": "STRING",
+    "mode": "REQUIRED",
+    "maxLength": "32",
+    "description": "Reference of the access review record that authorised this entitlement."
+  }
+]

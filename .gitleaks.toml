@@ -1,0 +1,75 @@
+# =============================================================================
+# Habot Connect FZCO - Hiring Project
+# Position: Junior Cloud and Development Operations Engineer
+# Candidate Full Name: Anuradha
+# Candidate Electronic Mail Address: anuradha@tecofize.com
+# File Purpose: Secret scanner configuration for the fail closed build gate.
+# =============================================================================
+#
+# Poka-Yoke rationale for this file:
+# The default rule set is extended rather than replaced, so that a future
+# version of the scanner brings new detections into this repository without
+# anybody having to notice and copy them in. The rules added below are the
+# credential shapes specific to this platform that the default set does not
+# cover.
+#
+# There is no allow list entry for a real credential in this file. The only
+# entries permitted are file paths that contain example values which are
+# structurally invalid and therefore cannot authenticate anywhere.
+
+title = "Habot Connect Learning Support Platform Secret Detection Rules"
+
+[extend]
+useDefault = true
+
+[[rules]]
+id = "google-cloud-service-account-private-key"
+description = "A Google Cloud service account key file. No such file may exist in this repository, because the pipeline authenticates through workload identity federation."
+regex = '''"type"\s*:\s*"service_account"'''
+tags = ["google-cloud", "credential", "critical"]
+
+[[rules]]
+id = "google-cloud-application-programming-interface-key"
+description = "A Google Cloud application programming interface key."
+regex = '''\bAIza[0-9A-Za-z\-_]{35}\b'''
+tags = ["google-cloud", "credential", "critical"]
+
+[[rules]]
+id = "private-key-block"
+description = "A privacy enhanced mail encoded private key of any kind."
+regex = '''-----BEGIN(?: RSA| EC| DSA| OPENSSH| PGP)? PRIVATE KEY( BLOCK)?-----'''
+tags = ["credential", "critical"]
+
+[[rules]]
+id = "assignment-of-a-literal-credential"
+description = "A variable whose name indicates a credential being assigned a literal value of credential length. This catches the exact pattern that caused the incident this project responds to."
+regex = '''(?i)\b(api[_-]?key|apikey|secret[_-]?key|access[_-]?token|auth[_-]?token|client[_-]?secret|password|passwd)\b\s*[:=]\s*["'][^"'\s$}{]{12,}["']'''
+tags = ["credential", "high"]
+
+[[rules]]
+id = "database-connection-string-with-embedded-password"
+description = "A database connection string that carries a password inline."
+regex = '''(?i)\b(postgresql|postgres|mysql|mongodb(\+srv)?|redis|amqp)://[^:\s/]+:[^@\s]{6,}@'''
+tags = ["credential", "high"]
+
+[allowlist]
+description = "Paths that hold structurally invalid example values only. No entry here may reference a value that authenticates anywhere."
+
+paths = [
+  # The documentation quotes the shape of a credential in order to explain what
+  # the scanner detects. The quoted shapes are deliberately truncated.
+  '''docs/FAIL_CLOSED_DEMONSTRATION_EVIDENCE\.md''',
+  '''docs/GOLDEN_RULES_AND_POKA_YOKE_DESIGN\.md''',
+  # The demonstration script writes an invalid example credential into a
+  # throwaway repository at run time. Nothing under this path is ever committed
+  # with a credential in it.
+  '''quarantine-demonstration/run_fail_closed_demonstration\.sh''',
+  '''\.gitleaks\.toml''',
+]
+
+regexes = [
+  # The environment variable reference form is the approved way to read a
+  # credential and must never be reported.
+  '''os\.environ\[["'][A-Z_]+["']\]''',
+  '''\$\{\{\s*secrets\.[A-Z_]+\s*\}\}''',
+]

@@ -1,0 +1,169 @@
+[
+  {
+    "name": "submission_reference",
+    "type": "STRING",
+    "mode": "REQUIRED",
+    "maxLength": "22",
+    "description": "Unique reference of the onboarding submission. Format is the four letters HCSO, a hyphen, the submission date in the form year month day, a hyphen, and eight upper case hexadecimal characters."
+  },
+  {
+    "name": "submission_received_timestamp",
+    "type": "TIMESTAMP",
+    "mode": "REQUIRED",
+    "description": "Instant at which the Django REST Framework application accepted the submission. This column is the partitioning column of the table."
+  },
+  {
+    "name": "student_given_name",
+    "type": "STRING",
+    "mode": "REQUIRED",
+    "maxLength": "60",
+    "description": "Given name of the student. Withheld from the reporting view."
+  },
+  {
+    "name": "student_family_name",
+    "type": "STRING",
+    "mode": "REQUIRED",
+    "maxLength": "60",
+    "description": "Family name of the student. Withheld from the reporting view."
+  },
+  {
+    "name": "student_date_of_birth",
+    "type": "DATE",
+    "mode": "REQUIRED",
+    "description": "Date of birth of the student. Withheld from the reporting view."
+  },
+  {
+    "name": "student_year_group",
+    "type": "INTEGER",
+    "mode": "REQUIRED",
+    "description": "National curriculum year group of the student, from one to thirteen inclusive."
+  },
+  {
+    "name": "parent_or_guardian_full_name",
+    "type": "STRING",
+    "mode": "REQUIRED",
+    "maxLength": "120",
+    "description": "Full name of the parent or guardian making the submission. Withheld from the reporting view."
+  },
+  {
+    "name": "parent_or_guardian_email_address",
+    "type": "STRING",
+    "mode": "REQUIRED",
+    "maxLength": "254",
+    "description": "Electronic mail address of the parent or guardian. Withheld from the reporting view."
+  },
+  {
+    "name": "parent_or_guardian_telephone_number",
+    "type": "STRING",
+    "mode": "REQUIRED",
+    "maxLength": "16",
+    "description": "Telephone number of the parent or guardian in international format. Withheld from the reporting view."
+  },
+  {
+    "name": "home_postal_code",
+    "type": "STRING",
+    "mode": "REQUIRED",
+    "maxLength": "8",
+    "description": "Postal code of the home address of the student. Withheld from the reporting view."
+  },
+  {
+    "name": "assigned_local_authority_name",
+    "type": "STRING",
+    "mode": "REQUIRED",
+    "maxLength": "80",
+    "description": "Name of the local authority responsible for the student. This column is a clustering column and is the column that the row access policy filters on."
+  },
+  {
+    "name": "school_unique_reference_number",
+    "type": "STRING",
+    "mode": "REQUIRED",
+    "maxLength": "6",
+    "description": "Six digit unique reference number of the school that the student attends."
+  },
+  {
+    "name": "learning_support_category",
+    "type": "STRING",
+    "mode": "REQUIRED",
+    "maxLength": "48",
+    "description": "Category of learning support requested. One of the six permitted values held in the deconstructed yes or no validation library. This column is a clustering column."
+  },
+  {
+    "name": "weekly_support_hours_requested",
+    "type": "INTEGER",
+    "mode": "REQUIRED",
+    "description": "Number of support hours requested each week, from one to twenty five inclusive."
+  },
+  {
+    "name": "preferred_session_language",
+    "type": "STRING",
+    "mode": "REQUIRED",
+    "maxLength": "24",
+    "description": "Language in which the support sessions are to be delivered. One of the permitted values held in the deconstructed yes or no validation library."
+  },
+  {
+    "name": "education_health_care_plan_is_present",
+    "type": "BOOLEAN",
+    "mode": "REQUIRED",
+    "description": "True when the student holds an education, health and care plan. When true the reference column must be populated."
+  },
+  {
+    "name": "education_health_care_plan_reference",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "maxLength": "14",
+    "description": "Reference of the education, health and care plan. Null exactly when the plan is not present."
+  },
+  {
+    "name": "data_processing_consent_is_given",
+    "type": "BOOLEAN",
+    "mode": "REQUIRED",
+    "description": "True when the parent or guardian has given explicit consent to the processing of the data of the student. A submission with this column set to false is never written to this table."
+  },
+  {
+    "name": "validation_outcome_is_accepted",
+    "type": "BOOLEAN",
+    "mode": "REQUIRED",
+    "description": "Overall outcome of the deconstructed yes or no validation library. True only when every rule answered yes."
+  },
+  {
+    "name": "validation_rule_results",
+    "type": "RECORD",
+    "mode": "REPEATED",
+    "description": "One entry for each rule evaluated by the deconstructed yes or no validation library, preserved so that an audit can reconstruct exactly why a submission was accepted.",
+    "fields": [
+      {
+        "name": "rule_identifier",
+        "type": "STRING",
+        "mode": "REQUIRED",
+        "maxLength": "48",
+        "description": "Stable identifier of the validation rule."
+      },
+      {
+        "name": "rule_question",
+        "type": "STRING",
+        "mode": "REQUIRED",
+        "maxLength": "400",
+        "description": "The question that the rule answers, stated so that the only possible answers are yes and no."
+      },
+      {
+        "name": "rule_answer_is_yes",
+        "type": "BOOLEAN",
+        "mode": "REQUIRED",
+        "description": "The answer that the rule returned for this submission."
+      }
+    ]
+  },
+  {
+    "name": "record_is_withheld_from_analytics",
+    "type": "BOOLEAN",
+    "mode": "REQUIRED",
+    "description": "True when the parent or guardian has objected to analytical processing. The row access policy and the reporting view both exclude rows where this column is true."
+  },
+  {
+    "name": "ingestion_source_object_path",
+    "type": "STRING",
+    "mode": "REQUIRED",
+    "maxLength": "512",
+    "description": "Full path of the object in the raw landing bucket from which this row was derived, retained so that every row can be traced back to its source."
+  }
+]

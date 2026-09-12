@@ -1,0 +1,71 @@
+===============================================================================
+Habot Connect FZCO - Hiring Project
+Position: Junior Cloud and Development Operations Engineer
+Candidate Full Name: Anuradha
+Candidate Electronic Mail Address: anuradha@tecofize.com
+
+Captured output of a real run of:
+  bash quarantine-demonstration/run_fail_closed_demonstration.sh
+Only this header block was added afterwards, so that the file carries the
+candidate details the brief requires. Everything below the line is the
+unedited output the script produced.
+===============================================================================
+
+===============================================================================
+PART ONE. The committed tree. Every check must pass.
+===============================================================================
+
+--- Check one. Secret detection across the whole tree.
+    RESULT: PASS. No credential found.
+--- Check two. Python formatting.
+    RESULT: PASS. The Python source is in canonical format.
+--- Check three. Python linting.
+    RESULT: PASS. The linter reported nothing.
+--- Check four. Schema consistency between the application and the warehouse.
+    RESULT: PASS. The application and the warehouse agree.
+--- Check five. The validation test suite.
+    RESULT: PASS. Every test passed.
+
+Part one summary: 0 check or checks failed.
+The gate is OPEN for the committed tree. A commit of this tree may proceed.
+
+===============================================================================
+PART TWO. An insecure commit. Every affected check must fail.
+===============================================================================
+
+Writing the insecure change that a junior developer might push.
+
+The change does three things, each of which the gate must catch:
+  1. It holds a credential in plain text in application code.
+  2. It is formatted incorrectly.
+  3. It adds a warehouse column without adding the matching field.
+
+--- Gate one. Secret detection and quarantine.
+    RESULT: FAIL CLOSED. A credential was detected. The build is halted.
+    The commit is quarantined and the credential must be rotated at its issuer.
+--- Gate two. Python formatting.
+    RESULT: FAIL CLOSED. The source is not in canonical format.
+--- Gate three. Python linting.
+    RESULT: FAIL CLOSED. The linter reported a finding.
+--- Gate four. Schema consistency.
+    RESULT: FAIL CLOSED. The application and the warehouse disagree.
+    The exact disagreement reported by the gate:
+      Warehouse columns examined: 23
+      Field contract entries examined: 19
+      
+      FAIL CLOSED. The application and the warehouse disagree.
+        - The warehouse declares a column named parent_marketing_preference which is neither declared in the field contract nor listed as a warehouse only column. Every column must be accounted for, so that this gate cannot silently stop covering part of the schema.
+      
+      Correct the field contract and the warehouse schema together. They describe one thing and must say the same thing about it.
+
+===============================================================================
+OUTCOME
+===============================================================================
+
+DEMONSTRATION SUCCEEDED.
+
+The clean tree opened every gate.
+The insecure commit closed every gate it touched.
+
+No gate in this system reports a warning and continues. A check either
+passes or the build halts, which is what the phrase fail closed means.
